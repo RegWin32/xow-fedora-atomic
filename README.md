@@ -5,7 +5,7 @@
     <a href="https://github.com/RegWin32/xow-fedora-atomic/releases/latest">
         <img src="https://img.shields.io/github/v/release/RegWin32/xow-fedora-atomic" alt="Release Badge">
     </a>
-    <a href="https://github.com/RegWin32/xow-fedora-atomic/blob/main/LICENSE">
+    <a href="https://github.com/RegWin32/xow-fedora-atomic/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/RegWin32/xow-fedora-atomic" alt="License Badge">
     </a>
     <a href="https://github.com/RegWin32/xow-fedora-atomic/releases">
