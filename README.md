@@ -1,16 +1,15 @@
 <p align="center">
     <img src="assets/logo.png" alt="Logo">
 </p>
-
 <p align="center">
-    <a href="https://github.com/medusalix/xow/actions">
-        <img src="https://img.shields.io/github/workflow/status/medusalix/xow/Continuous%20Integration" alt="Build Badge">
-    </a>
     <a href="https://github.com/RegWin32/xow-fedora-atomic/releases/latest">
         <img src="https://img.shields.io/github/v/release/RegWin32/xow-fedora-atomic" alt="Release Badge">
     </a>
-    <a href="https://discord.gg/FDQxwWk">
-        <img src="https://img.shields.io/discord/733964971842732042" alt="Discord Badge">
+    <a href="https://github.com/RegWin32/xow-fedora-atomic/blob/main/LICENSE">
+        <img src="https://img.shields.io/github/license/RegWin32/xow-fedora-atomic" alt="License Badge">
+    </a>
+    <a href="https://github.com/RegWin32/xow-fedora-atomic/releases">
+        <img src="https://img.shields.io/github/downloads/RegWin32/xow-fedora-atomic/total" alt="Downloads Badge">
     </a>
 </p>
 
