@@ -17,8 +17,11 @@
  */
 
 #include "controller.h"
+#include "../dongle/dongle.h"
 #include "../utils/log.h"
 
+#include <chrono>
+#include <cstdint>
 #include <cstdlib>
 #include <cmath>
 #include <linux/input.h>
@@ -41,20 +44,33 @@
 #define RUMBLE_MAX_POWER 100
 #define RUMBLE_DELAY std::chrono::milliseconds(10)
 
-Controller::Controller(
-    SendPacket sendPacket
-) : GipDevice(sendPacket),
-    inputDevice(std::bind(
-        &Controller::inputFeedbackReceived,
-        this,
-        std::placeholders::_1,
-        std::placeholders::_2,
-        std::placeholders::_3
-    )),
-    stopRumbleThread(false) {}
+
+Controller::Controller(SendPacket sendPacket, uint8_t wcid, Dongle& dongle)
+: GipDevice(sendPacket),
+wcid(wcid),
+dongle(dongle),
+stopKeepAliveThread(false),
+lastActivity(std::chrono::steady_clock::now()),
+inputDevice(std::bind(
+    &Controller::inputFeedbackReceived,
+    this,
+    std::placeholders::_1,
+    std::placeholders::_2,
+    std::placeholders::_3
+)),
+stopRumbleThread(false)
+{
+}
+
 
 Controller::~Controller()
 {
+    stopKeepAliveThread = true;
+    if (keepAliveThread.joinable())
+    {
+        keepAliveThread.join();
+    }
+
     stopRumbleThread = true;
     rumbleCondition.notify_one();
 
@@ -106,6 +122,7 @@ void Controller::statusReceived(uint8_t id, const StatusData *status)
     Log::info("Battery level: %s", levels[level].c_str());
 
     batteryLevel = level;
+    keepAliveThread = std::thread(&Controller::processKeepAlive, this);
 }
 
 void Controller::guideButtonPressed(const GuideButtonData *button)
@@ -124,8 +141,37 @@ void Controller::serialNumberReceived(const SerialData *serial)
     Log::info("Serial number: %s", number.c_str());
 }
 
+void Controller::processKeepAlive()
+{
+    const auto keepAliveInterval = std::chrono::seconds(1); // 1 Sekunde Intervall
+    while (!stopKeepAliveThread)
+    {
+        auto now = std::chrono::steady_clock::now();
+        auto timeSinceActivity = now - lastActivity;
+
+        if (timeSinceActivity >= keepAliveInterval)
+        {
+            // NullFrame senden, nicht während Pairing
+            if (!dongle.sendNullFrame(wcid, wcid, false))
+            {
+                Log::debug("Keep Alive NullFrame failed");
+                // Fallback: SerialNumber nur bei Fehler
+                if (!requestSerialNumber())
+                    Log::debug("SerialNumber Keep-alive failed");
+            }
+
+            lastActivity = now;
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    }
+}
+
+
 void Controller::inputReceived(const InputData *input)
 {
+    lastActivity = std::chrono::steady_clock::now();
+
     inputDevice.setKey(BTN_START, input->buttons.start);
     inputDevice.setKey(BTN_SELECT, input->buttons.select);
     inputDevice.setKey(BTN_A, input->buttons.a);

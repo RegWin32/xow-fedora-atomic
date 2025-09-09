@@ -37,6 +37,9 @@
 #define MT_WLAN_MANAGEMENT 0x00
 #define MT_WLAN_DATA 0x02
 
+// WLAN NULL DATA
+#define MT_WLAN_NULL_DATA 0x04
+
 // WLAN frame subtypes
 #define MT_WLAN_ASSOCIATION_REQ 0x00
 #define MT_WLAN_ASSOCIATION_RESP 0x01
@@ -572,6 +575,9 @@ private:
     Bytes efuseRead(uint8_t address, uint8_t index);
 
     uint16_t connectedClients = 0;
+public:
+    /* Null frames 802.11 IEEE */
+    bool sendNullFrame(uint8_t wcid, const Bytes& address, bool pairing);
 };
 
 class Mt76Exception : public std::runtime_error

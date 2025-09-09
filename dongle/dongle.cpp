@@ -18,6 +18,8 @@
 
 #include "dongle.h"
 #include "../utils/log.h"
+#include "mt76.h"
+#include <bits/types/cookie_io_functions_t.h>
 
 Dongle::Dongle(
     std::unique_ptr<UsbDevice> usbDevice
@@ -64,6 +66,8 @@ void Dongle::handleControllerConnect(Bytes address)
         return;
     }
 
+    controllerAddresses[wcid] = address;
+
     GipDevice::SendPacket sendPacket = std::bind(
         &Dongle::sendClientPacket,
         this,
@@ -72,7 +76,7 @@ void Dongle::handleControllerConnect(Bytes address)
         std::placeholders::_1
     );
 
-    controllers[wcid - 1].reset(new Controller(sendPacket));
+    controllers[wcid - 1].reset(new Controller(sendPacket, wcid, *this));
 
     Log::info("Controller '%d' connected", wcid);
 }
@@ -101,6 +105,8 @@ void Dongle::handleControllerDisconnect(uint8_t wcid)
 
         return;
     }
+
+    controllerAddresses.erase(wcid);
 
     Log::info("Controller '%d' disconnected", wcid);
 }
@@ -268,7 +274,13 @@ void Dongle::handleBulkData(const Bytes &data)
                 break;
 
             case EVT_CLIENT_LOST:
-                // Packet is guaranteed not to be empty
+                // Mehr Details loggen
+                Log::debug("EVT_CLIENT_LOST received, packet size: %zu", packet.size());
+                if (packet.size() > 0) {
+                    Log::debug("WCID: %d, additional data: %s",
+                                 packet[0],
+                                 Log::formatBytes(packet).c_str());
+                }
                 handleControllerDisconnect(packet[0]);
                 break;
         }
@@ -288,6 +300,8 @@ void Dongle::handleBulkData(const Bytes &data)
 void Dongle::readBulkPackets(uint8_t endpoint)
 {
     FixedBytes<USB_MAX_BULK_TRANSFER_SIZE> buffer;
+    int errorCount = 0;
+    const int MAX_ERRORS = 5;
 
     while (!stopThreads)
     {
@@ -296,8 +310,20 @@ void Dongle::readBulkPackets(uint8_t endpoint)
         // Bulk read failed
         if (transferred < 0)
         {
-            break;
+            errorCount++;
+            Log::info("Bulk read failed on endpoint %d (error %d/%d)",
+                      endpoint, errorCount, MAX_ERRORS);
+
+            if (errorCount >= MAX_ERRORS)
+            {
+             Log::error("Too many consecutive errors, stopping thead");
+             break;
+            }
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            continue;
         }
+
+        errorCount = 0; // Reset errorCount on success
 
         if (transferred > 0)
         {
@@ -307,3 +333,14 @@ void Dongle::readBulkPackets(uint8_t endpoint)
         }
     }
 }
+
+bool Dongle::sendKeepAliveFrame(uint8_t wcid)
+{
+    auto it = controllerAddresses.find(wcid);
+    if (it == controllerAddresses.end())
+        return false;
+    Log::debug("Sending NullFrame");
+
+    return sendNullFrame(wcid, it->second, false);
+}
+

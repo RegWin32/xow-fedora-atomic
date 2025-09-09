@@ -23,6 +23,7 @@
 #include "../utils/buffer.h"
 
 #include <atomic>
+#include <cstdint>
 #include <thread>
 #include <mutex>
 #include <condition_variable>
@@ -31,13 +32,25 @@
  * Forwards gamepad events to virtual input device
  * Passes force feedback effects to gamepad
  */
+class Dongle;
+
 class Controller : public GipDevice
 {
 public:
-    Controller(SendPacket sendPacket);
+    Controller(SendPacket sendPacket, uint8_t wcid, Dongle& dongle);
     ~Controller();
 
 private:
+    uint8_t wcid;
+    Dongle& dongle;
+    /* Keep-alive members*/
+    std::chrono::steady_clock::time_point lastActivity;
+    std::atomic<bool> stopKeepAliveThread;
+    std::thread keepAliveThread;
+    const std::chrono::seconds KEEPALIVE_INTERVAL = std::chrono::seconds(5);
+
+    void processKeepAlive();
+
     /* GIP events */
     void deviceAnnounced(uint8_t id, const AnnounceData *announce) override;
     void statusReceived(uint8_t id, const StatusData *status) override;

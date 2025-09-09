@@ -26,6 +26,7 @@
 #include <atomic>
 #include <thread>
 #include <mutex>
+#include <unordered_map>
 
 // Microsoft's vendor ID
 #define DONGLE_VID 0x045e
@@ -48,6 +49,7 @@ public:
     ~Dongle();
 
     using Mt76::setPairingStatus;
+    bool sendKeepAliveFrame(uint8_t wcid);
 
 private:
     /* Packet handling */
@@ -64,4 +66,5 @@ private:
 
     std::mutex controllerMutex;
     std::array<std::unique_ptr<Controller>, MT_WCID_COUNT> controllers;
+    std::unordered_map<uint8_t, Bytes> controllerAddresses;  // WCID -> MAC
 };

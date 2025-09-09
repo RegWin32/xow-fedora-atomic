@@ -1126,6 +1126,40 @@ bool Mt76::setPairingStatus(bool enable)
     return true;
 }
 
+bool Mt76::sendNullFrame(uint8_t wcid, const Bytes& address, bool pairing = false)
+{
+    TxWi txWi = {};
+    txWi.phyType = MT_PHY_TYPE_OFDM;
+    txWi.ack = true;
+    txWi.wcid = wcid;
+
+    WlanFrame nullFrame = {};
+    nullFrame.frameControl.type = MT_WLAN_DATA;
+    nullFrame.frameControl.subtype = MT_WLAN_NULL_DATA;
+    nullFrame.frameControl.fromDs = false; // wichtig für Controller
+    nullFrame.duration = 0;
+
+    address.copy(nullFrame.destination);
+    macAddress.copy(nullFrame.source);
+    macAddress.copy(nullFrame.bssId);
+
+    // Frame-Länge dynamisch setzen
+    if (pairing)
+    {
+        txWi.mpduByteCount = sizeof(WlanFrame); // inkl. Padding für initiales Pairing
+    }
+    else
+    {
+        txWi.mpduByteCount = 20; // exakte Wire-Größe für KeepAlive NullFrames
+    }
+
+    Bytes out;
+    out.append(txWi);
+    out.append(nullFrame);
+
+    return sendWlanPacket(out);
+}
+
 bool Mt76::sendWlanPacket(const Bytes &data)
 {
     // Values must be 32-bit aligned
@@ -1168,7 +1202,11 @@ bool Mt76::initRegisters()
         MT_MAC_SYS_CTRL,
         MT_MAC_SYS_CTRL_RESET_CSR | MT_MAC_SYS_CTRL_RESET_BBP
     );
-    controlWrite(MT_USB_DMA_CFG, 0);
+
+    DmaConfig dmaConfig = {};
+    dmaConfig.props.wakeupEnabled = true;
+    controlWrite(MT_USB_DMA_CFG, dmaConfig.value);
+
     controlWrite(MT_MAC_SYS_CTRL, 0);
     controlWrite(MT_PWR_PIN_CFG, 0);
     controlWrite(MT_LDO_CTRL_1, 0x6b006464);
