@@ -1,0 +1,358 @@
+
+Warnung: https://github.com/RegWin32/xow-fedora-atomic/archive/v0.5.tar.gz wird nach /var/home/pklein/Downloads/xow-fedora-atomic/packaging/fedora/v0.5.tar.gz heruntergeladen
+Einstellung SOURCE_DATE_EPOCH=1590019200
+Ausführung(%mkbuilddir): /bin/sh -e /var/tmp/rpm-tmp.Y7FUt4
+Ausführung(%prep): /bin/sh -e /var/tmp/rpm-tmp.C7JqUq
++ umask 022
++ cd /var/home/pklein/Downloads/xow-fedora-atomic/packaging/fedora/xow-fedora-atomic-0.5-build
++ cd /var/home/pklein/Downloads/xow-fedora-atomic/packaging/fedora/xow-fedora-atomic-0.5-build
++ rm -rf xow-fedora-atomic-0.5
++ /usr/lib/rpm/rpmuncompress -x /var/home/pklein/Downloads/xow-fedora-atomic/packaging/fedora/v0.5.tar.gz
++ STATUS=0
++ '[' 0 -ne 0 ']'
++ cd xow-fedora-atomic-0.5
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
++ RPM_EC=0
+++ jobs -p
++ exit 0
+Ausführung(%build): /bin/sh -e /var/tmp/rpm-tmp.1LtpEZ
++ umask 022
++ cd /var/home/pklein/Downloads/xow-fedora-atomic/packaging/fedora/xow-fedora-atomic-0.5-build
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer '
++ export CFLAGS
++ CXXFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer '
++ export CXXFLAGS
++ FFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules '
++ export FFLAGS
++ FCFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules '
++ export FCFLAGS
++ VALAFLAGS=-g
++ export VALAFLAGS
++ RUSTFLAGS='-Copt-level=3 -Cdebuginfo=2 -Ccodegen-units=1 -Cstrip=none -Cforce-frame-pointers=yes -Clink-arg=-specs=/usr/lib/rpm/redhat/redhat-package-notes --cap-lints=warn'
++ export RUSTFLAGS
++ LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes '
++ export LDFLAGS
++ LT_SYS_LIBRARY_PATH=/usr/lib64:
++ export LT_SYS_LIBRARY_PATH
++ CC=gcc
++ export CC
++ CXX=g++
++ export CXX
++ cd xow-fedora-atomic-0.5
++ /usr/bin/make -O -j16 V=1 VERBOSE=1 BUILD=RELEASE BINDIR=/usr/bin UDEVDIR=/usr/lib/udev/rules.d MODLDIR=/usr/lib/modules-load.d MODPDIR=/usr/lib/modprobe.d SYSDDIR=/usr/lib/systemd/system
+g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -Wall -Wpedantic -std=c++11 -MMD -O3 -DVERSION=\"v0.5-36-gd335d60\" -DLOCK_FILE=\"/tmp/xow.lock\" -c -o dongle/usb.o dongle/usb.cpp
+In file included from dongle/usb.h:21,
+                 from dongle/usb.cpp:19:
+dongle/../utils/bytes.h:35:19: error: ‘size_t’ does not name a type
+   35 |     inline static size_t padding(size_t count)
+      |                   ^~~~~~
+dongle/../utils/bytes.h:24:1: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+   23 | #include <array>
+  +++ |+#include <cstddef>
+   24 | 
+dongle/../utils/bytes.h:53:9: error: ‘size_t’ has not been declared
+   53 |         size_t skipBegin,
+      |         ^~~~~~
+dongle/../utils/bytes.h:53:9: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:54:9: error: ‘size_t’ has not been declared
+   54 |         size_t skipEnd = 0
+      |         ^~~~~~
+dongle/../utils/bytes.h:54:9: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:67:12: error: ‘size_t’ does not name a type
+   67 |     inline size_t size() const
+      |            ^~~~~~
+dongle/../utils/bytes.h:67:12: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:83:30: error: ‘size_t’ has not been declared
+   83 |     inline const T* toStruct(size_t offset = 0) const
+      |                              ^~~~~~
+dongle/../utils/bytes.h:83:30: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:99:41: error: ‘size_t’ has not been declared
+   99 |     inline void append(const T &object, size_t size = sizeof(T))
+      |                                         ^~~~~~
+dongle/../utils/bytes.h:99:41: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:114:21: error: ‘size_t’ has not been declared
+  114 |     inline void pad(size_t count)
+      |                     ^~~~~~
+dongle/../utils/bytes.h:114:21: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:124:31: error: ‘size_t’ has not been declared
+  124 |     inline uint8_t operator[](size_t index) const
+      |                               ^~~~~~
+dongle/../utils/bytes.h:124:31: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:129:32: error: ‘size_t’ has not been declared
+  129 |     inline uint8_t& operator[](size_t index)
+      |                                ^~~~~~
+dongle/../utils/bytes.h:129:32: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:152:10: error: ‘size_t’ has not been declared
+  152 | template<size_t S>
+      |          ^~~~~~
+dongle/../utils/bytes.h:152:10: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:156:26: error: ‘size_t’ has not been declared [-Wtemplate-body]
+  156 |     inline Bytes toBytes(size_t count) const
+      |                          ^~~~~~
+dongle/../utils/bytes.h:156:26: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:164:12: error: ‘size_t’ does not name a type [-Wtemplate-body]
+  164 |     inline size_t size() const
+      |            ^~~~~~
+dongle/../utils/bytes.h:164:12: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:175:25: error: ‘S’ was not declared in this scope [-Wtemplate-body]
+  175 |     std::array<uint8_t, S> data;
+      |                         ^
+dongle/../utils/bytes.h:175:26: error: template argument 2 is invalid [-Wtemplate-body]
+  175 |     std::array<uint8_t, S> data;
+      |                          ^
+dongle/usb.cpp: In member function ‘int UsbDevice::bulkRead(uint8_t, int&)’:
+dongle/usb.cpp:114:16: error: request for member ‘raw’ in ‘buffer’, which is of non-class type ‘int’
+  114 |         buffer.raw(),
+      |                ^~~
+dongle/usb.cpp:115:16: error: request for member ‘size’ in ‘buffer’, which is of non-class type ‘int’
+  115 |         buffer.size(),
+      |                ^~~~
+dongle/usb.cpp: In member function ‘bool UsbDevice::bulkWrite(uint8_t, Bytes&)’:
+dongle/usb.cpp:138:14: error: ‘class Bytes’ has no member named ‘size’
+  138 |         data.size(),
+      |              ^~~~
+make: *** [Makefile:32: dongle/usb.o] Error 1
+make: *** Waiting for unfinished jobs....
+g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -Wall -Wpedantic -std=c++11 -MMD -O3 -DVERSION=\"v0.5-36-gd335d60\" -DLOCK_FILE=\"/tmp/xow.lock\" -c -o dongle/mt76.o dongle/mt76.cpp
+In file included from dongle/usb.h:21,
+                 from dongle/mt76.h:21,
+                 from dongle/mt76.cpp:19:
+dongle/../utils/bytes.h:35:19: error: ‘size_t’ does not name a type
+   35 |     inline static size_t padding(size_t count)
+      |                   ^~~~~~
+dongle/../utils/bytes.h:24:1: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+   23 | #include <array>
+  +++ |+#include <cstddef>
+   24 | 
+dongle/../utils/bytes.h:53:9: error: ‘size_t’ has not been declared
+   53 |         size_t skipBegin,
+      |         ^~~~~~
+dongle/../utils/bytes.h:53:9: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:54:9: error: ‘size_t’ has not been declared
+   54 |         size_t skipEnd = 0
+      |         ^~~~~~
+dongle/../utils/bytes.h:54:9: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:67:12: error: ‘size_t’ does not name a type
+   67 |     inline size_t size() const
+      |            ^~~~~~
+dongle/../utils/bytes.h:67:12: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:83:30: error: ‘size_t’ has not been declared
+   83 |     inline const T* toStruct(size_t offset = 0) const
+      |                              ^~~~~~
+dongle/../utils/bytes.h:83:30: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:99:41: error: ‘size_t’ has not been declared
+   99 |     inline void append(const T &object, size_t size = sizeof(T))
+      |                                         ^~~~~~
+dongle/../utils/bytes.h:99:41: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:114:21: error: ‘size_t’ has not been declared
+  114 |     inline void pad(size_t count)
+      |                     ^~~~~~
+dongle/../utils/bytes.h:114:21: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:124:31: error: ‘size_t’ has not been declared
+  124 |     inline uint8_t operator[](size_t index) const
+      |                               ^~~~~~
+dongle/../utils/bytes.h:124:31: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:129:32: error: ‘size_t’ has not been declared
+  129 |     inline uint8_t& operator[](size_t index)
+      |                                ^~~~~~
+dongle/../utils/bytes.h:129:32: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:152:10: error: ‘size_t’ has not been declared
+  152 | template<size_t S>
+      |          ^~~~~~
+dongle/../utils/bytes.h:152:10: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:156:26: error: ‘size_t’ has not been declared [-Wtemplate-body]
+  156 |     inline Bytes toBytes(size_t count) const
+      |                          ^~~~~~
+dongle/../utils/bytes.h:156:26: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:164:12: error: ‘size_t’ does not name a type [-Wtemplate-body]
+  164 |     inline size_t size() const
+      |            ^~~~~~
+dongle/../utils/bytes.h:164:12: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:175:25: error: ‘S’ was not declared in this scope [-Wtemplate-body]
+  175 |     std::array<uint8_t, S> data;
+      |                         ^
+dongle/../utils/bytes.h:175:26: error: template argument 2 is invalid [-Wtemplate-body]
+  175 |     std::array<uint8_t, S> data;
+      |                          ^
+dongle/mt76.cpp: In member function ‘bool Mt76::pairClient(Bytes)’:
+dongle/mt76.cpp:1021:51: error: ‘const class Bytes’ has no member named ‘size’
+ 1021 |     txWi.mpduByteCount = sizeof(WlanFrame) + data.size();
+      |                                                   ^~~~
+dongle/mt76.cpp: In member function ‘bool Mt76::sendClientPacket(uint8_t, Bytes, const Bytes&)’:
+dongle/mt76.cpp:1065:72: error: ‘const class Bytes’ has no member named ‘size’
+ 1065 |     txWi.mpduByteCount = sizeof(WlanFrame) + sizeof(QosFrame) + packet.size();
+      |                                                                        ^~~~
+dongle/mt76.cpp:1085:35: error: ‘padding’ is not a member of ‘Bytes’
+ 1085 |     uint8_t framePadding = Bytes::padding<uint32_t>(length);
+      |                                   ^~~~~~~
+dongle/mt76.cpp:1085:51: error: expected primary-expression before ‘>’ token
+ 1085 |     uint8_t framePadding = Bytes::padding<uint32_t>(length);
+      |                                                   ^
+dongle/mt76.cpp:1086:34: error: ‘padding’ is not a member of ‘Bytes’
+ 1086 |     uint8_t dataPadding = Bytes::padding<uint32_t>(packet.size());
+      |                                  ^~~~~~~
+dongle/mt76.cpp:1086:50: error: expected primary-expression before ‘>’ token
+ 1086 |     uint8_t dataPadding = Bytes::padding<uint32_t>(packet.size());
+      |                                                  ^
+dongle/mt76.cpp:1086:59: error: ‘const class Bytes’ has no member named ‘size’
+ 1086 |     uint8_t dataPadding = Bytes::padding<uint32_t>(packet.size());
+      |                                                           ^~~~
+dongle/mt76.cpp: In member function ‘bool Mt76::sendWlanPacket(const Bytes&)’:
+dongle/mt76.cpp:1135:28: error: ‘const class Bytes’ has no member named ‘size’
+ 1135 |     uint32_t length = data.size();
+      |                            ^~~~
+dongle/mt76.cpp:1136:30: error: ‘padding’ is not a member of ‘Bytes’
+ 1136 |     uint8_t padding = Bytes::padding<uint32_t>(length);
+      |                              ^~~~~~~
+dongle/mt76.cpp:1136:46: error: expected primary-expression before ‘>’ token
+ 1136 |     uint8_t padding = Bytes::padding<uint32_t>(length);
+      |                                              ^
+dongle/mt76.cpp: In member function ‘bool Mt76::initRegisters()’:
+dongle/mt76.cpp:1255:20: error: ‘class Bytes’ has no member named ‘size’
+ 1255 |     if (macAddress.size() < 6)
+      |                    ^~~~
+dongle/mt76.cpp:1291:16: error: ‘class Bytes’ has no member named ‘size’
+ 1291 |     if (chipId.size() < sizeof(uint32_t))
+      |                ^~~~
+dongle/mt76.cpp: In member function ‘bool Mt76::calibrateCrystal()’:
+dongle/mt76.cpp:1312:14: error: ‘class Bytes’ has no member named ‘size’
+ 1312 |     if (trim.size() < sizeof(uint32_t))
+      |              ^~~~
+dongle/mt76.cpp:1338:18: error: ‘class Bytes’ has no member named ‘size’
+ 1338 |         if (trim.size() < sizeof(uint32_t))
+      |                  ^~~~
+dongle/mt76.cpp: In member function ‘bool Mt76::writeBeacon(bool)’:
+dongle/mt76.cpp:1575:73: error: ‘const class Bytes’ has no member named ‘size’
+ 1575 |     txWi.mpduByteCount = sizeof(WlanFrame) + sizeof(BeaconFrame) + data.size();
+      |                                                                         ^~~~
+dongle/mt76.cpp: In member function ‘uint8_t Mt76::getChannelPower(uint8_t)’:
+dongle/mt76.cpp:1769:15: error: ‘class Bytes’ has no member named ‘size’
+ 1769 |     if (entry.size() < 8)
+      |               ^~~~
+dongle/mt76.cpp: In member function ‘bool Mt76::sendCommand(McuCommand, const Bytes&)’:
+dongle/mt76.cpp:1950:28: error: ‘const class Bytes’ has no member named ‘size’
+ 1950 |     uint32_t length = data.size();
+      |                            ^~~~
+dongle/mt76.cpp:1951:30: error: ‘padding’ is not a member of ‘Bytes’
+ 1951 |     uint8_t padding = Bytes::padding<uint32_t>(length);
+      |                              ^~~~~~~
+dongle/mt76.cpp:1951:46: error: expected primary-expression before ‘>’ token
+ 1951 |     uint8_t padding = Bytes::padding<uint32_t>(length);
+      |                                              ^
+make: *** [Makefile:32: dongle/mt76.o] Error 1
+g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -Wall -Wpedantic -std=c++11 -MMD -O3 -DVERSION=\"v0.5-36-gd335d60\" -DLOCK_FILE=\"/tmp/xow.lock\" -c -o utils/reader.o utils/reader.cpp
+g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -Wall -Wpedantic -std=c++11 -MMD -O3 -DVERSION=\"v0.5-36-gd335d60\" -DLOCK_FILE=\"/tmp/xow.lock\" -c -o dongle/dongle.o dongle/dongle.cpp
+In file included from dongle/usb.h:21,
+                 from dongle/mt76.h:21,
+                 from dongle/dongle.h:21,
+                 from dongle/dongle.cpp:19:
+dongle/../utils/bytes.h:35:19: error: ‘size_t’ does not name a type
+   35 |     inline static size_t padding(size_t count)
+      |                   ^~~~~~
+dongle/../utils/bytes.h:24:1: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+   23 | #include <array>
+  +++ |+#include <cstddef>
+   24 | 
+dongle/../utils/bytes.h:53:9: error: ‘size_t’ has not been declared
+   53 |         size_t skipBegin,
+      |         ^~~~~~
+dongle/../utils/bytes.h:53:9: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:54:9: error: ‘size_t’ has not been declared
+   54 |         size_t skipEnd = 0
+      |         ^~~~~~
+dongle/../utils/bytes.h:54:9: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:67:12: error: ‘size_t’ does not name a type
+   67 |     inline size_t size() const
+      |            ^~~~~~
+dongle/../utils/bytes.h:67:12: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:83:30: error: ‘size_t’ has not been declared
+   83 |     inline const T* toStruct(size_t offset = 0) const
+      |                              ^~~~~~
+dongle/../utils/bytes.h:83:30: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:99:41: error: ‘size_t’ has not been declared
+   99 |     inline void append(const T &object, size_t size = sizeof(T))
+      |                                         ^~~~~~
+dongle/../utils/bytes.h:99:41: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:114:21: error: ‘size_t’ has not been declared
+  114 |     inline void pad(size_t count)
+      |                     ^~~~~~
+dongle/../utils/bytes.h:114:21: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:124:31: error: ‘size_t’ has not been declared
+  124 |     inline uint8_t operator[](size_t index) const
+      |                               ^~~~~~
+dongle/../utils/bytes.h:124:31: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:129:32: error: ‘size_t’ has not been declared
+  129 |     inline uint8_t& operator[](size_t index)
+      |                                ^~~~~~
+dongle/../utils/bytes.h:129:32: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:152:10: error: ‘size_t’ has not been declared
+  152 | template<size_t S>
+      |          ^~~~~~
+dongle/../utils/bytes.h:152:10: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:156:26: error: ‘size_t’ has not been declared [-Wtemplate-body]
+  156 |     inline Bytes toBytes(size_t count) const
+      |                          ^~~~~~
+dongle/../utils/bytes.h:156:26: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:164:12: error: ‘size_t’ does not name a type [-Wtemplate-body]
+  164 |     inline size_t size() const
+      |            ^~~~~~
+dongle/../utils/bytes.h:164:12: note: ‘size_t’ is defined in header ‘<cstddef>’; this is probably fixable by adding ‘#include <cstddef>’
+dongle/../utils/bytes.h:175:25: error: ‘S’ was not declared in this scope [-Wtemplate-body]
+  175 |     std::array<uint8_t, S> data;
+      |                         ^
+dongle/../utils/bytes.h:175:26: error: template argument 2 is invalid [-Wtemplate-body]
+  175 |     std::array<uint8_t, S> data;
+      |                          ^
+dongle/dongle.cpp: In member function ‘void Dongle::handleControllerPair(Bytes, const Bytes&)’:
+dongle/dongle.cpp:111:16: error: ‘const class Bytes’ has no member named ‘size’
+  111 |     if (packet.size() < sizeof(ReservedFrame))
+      |                ^~~~
+dongle/dongle.cpp: In member function ‘void Dongle::handleControllerPacket(uint8_t, const Bytes&)’:
+dongle/dongle.cpp:153:16: error: ‘const class Bytes’ has no member named ‘size’
+  153 |     if (packet.size() <= sizeof(QosFrame) + sizeof(uint16_t))
+      |                ^~~~
+dongle/dongle.cpp: In member function ‘void Dongle::handleWlanPacket(const Bytes&)’:
+dongle/dongle.cpp:178:16: error: ‘const class Bytes’ has no member named ‘size’
+  178 |     if (packet.size() <= sizeof(RxWi) + sizeof(WlanFrame))
+      |                ^~~~
+dongle/dongle.cpp:188:40: error: ‘class Bytes’ has no member named ‘size’
+  188 |         wlanFrame->source + macAddress.size()
+      |                                        ^~~~
+dongle/dongle.cpp:192:45: error: ‘class Bytes’ has no member named ‘size’
+  192 |         wlanFrame->destination + macAddress.size()
+      |                                             ^~~~
+dongle/dongle.cpp: In member function ‘void Dongle::handleBulkData(const Bytes&)’:
+dongle/dongle.cpp:246:14: error: ‘const class Bytes’ has no member named ‘size’
+  246 |     if (data.size() <= sizeof(RxInfoGeneric) + sizeof(uint32_t))
+      |              ^~~~
+dongle/dongle.cpp: In member function ‘void Dongle::readBulkPackets(uint8_t)’:
+dongle/dongle.cpp:304:33: error: request for member ‘toBytes’ in ‘buffer’, which is of non-class type ‘int’
+  304 |             Bytes data = buffer.toBytes(transferred);
+      |                                 ^~~~~~~
+make: *** [Makefile:32: dongle/dongle.o] Error 1
+g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -Wall -Wpedantic -std=c++11 -MMD -O3 -DVERSION=\"v0.5-36-gd335d60\" -DLOCK_FILE=\"/tmp/xow.lock\" -c -o controller/gip.o controller/gip.cpp
+g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -Wall -Wpedantic -std=c++11 -MMD -O3 -DVERSION=\"v0.5-36-gd335d60\" -DLOCK_FILE=\"/tmp/xow.lock\" -c -o utils/log.o utils/log.cpp
+g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -Wall -Wpedantic -std=c++11 -MMD -O3 -DVERSION=\"v0.5-36-gd335d60\" -DLOCK_FILE=\"/tmp/xow.lock\" -c -o xow.o xow.cpp
+g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -Wall -Wpedantic -std=c++11 -MMD -O3 -DVERSION=\"v0.5-36-gd335d60\" -DLOCK_FILE=\"/tmp/xow.lock\" -c -o controller/controller.o controller/controller.cpp
+g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  -Wall -Wpedantic -std=c++11 -MMD -O3 -DVERSION=\"v0.5-36-gd335d60\" -DLOCK_FILE=\"/tmp/xow.lock\" -c -o controller/input.o controller/input.cpp
+curl -o driver.cab http://download.windowsupdate.com/c/msdownload/update/driver/drvs/2017/07/1cd6a87c-623f-4407-a52d-c31be49e925c_e19f60808bdcbfbd3c3df6be3e71ffc52e43261e.cab
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  195k  100  195k    0     0   449k      0 --:--:-- --:--:-- --:--:--  449k
+cabextract -F FW_ACC_00U.bin driver.cab
+driver.cab: WARNING; possible 16256 extra bytes at end of file.
+Extracting cabinet: driver.cab
+  extracting FW_ACC_00U.bin
+
+All done, no errors.
+echo 48084d9fa53b9bb04358f3bb127b7495dc8f7bb0b3ca1437bd24ef2b6eabdf66 FW_ACC_00U.bin | sha256sum -c
+FW_ACC_00U.bin: OK
+mv FW_ACC_00U.bin firmware.bin
+rm -f driver.cab
+Fehler: Fehler-Status beim Beenden von /var/tmp/rpm-tmp.1LtpEZ (%build)
+
+RPM build Warnmeldungen:
+    https://github.com/RegWin32/xow-fedora-atomic/archive/v0.5.tar.gz wird nach /var/home/pklein/Downloads/xow-fedora-atomic/packaging/fedora/v0.5.tar.gz heruntergeladen
+
+RPM build Fehlermeldungen:
+    Fehler-Status beim Beenden von /var/tmp/rpm-tmp.1LtpEZ (%build)
