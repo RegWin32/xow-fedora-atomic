@@ -1,3 +1,4 @@
+## PLEASE MAKE SURE TO UPGRADE YOUR CONTROLLERS FIRMWARE (5.23.6.0)
 <p align="center">
     <img src="assets/logo.png" alt="Logo">
 </p>
