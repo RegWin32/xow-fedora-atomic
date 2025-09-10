@@ -1,6 +1,6 @@
 Name:           xow-fedora-atomic
-Version:        0.6
-Release:        2%{?dist}
+Version:        0.6.5
+Release:        1%{?dist}
 Summary:        xow Xbox One Wireless driver with firmware
 
 License:        GPLv2
